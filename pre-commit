@@ -1,0 +1,19 @@
+#!/bin/sh
+# echo Commiting is disabled
+
+# exit 1
+#echo Commiting is enabled
+
+#exit 0 #will work on exit 0 by default even if we don't declare here
+
+regex='@company\.com$'
+email=$GIT_AUTHOR_EMAIL
+
+if [[$email =~ $regex]];
+then
+    echo Your email $email satisfies Git policy
+    exit 0
+else
+    echo Your email $email does not satisfies Git policy
+    exit 1    
+fi    
